@@ -83,15 +83,15 @@ export class UserController {
   }
 
   @Delete(':id')
-  // @ApiOperation({ summary: 'Delete a user by id' })
-  // @ApiResponse({
-  //   status: 200,
-  //   description: 'The user has been successfully deleted.',
-  // })
-  // @ApiResponse({
-  //   status: 404,
-  //   description: 'User not found in the db.',
-  // })
+  @ApiOperation({ summary: 'Delete a user by id' })
+  @ApiResponse({
+    status: 200,
+    description: 'The user has been successfully deleted.',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'User not found in the db.',
+  })
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.userService.remove(id);
   }
