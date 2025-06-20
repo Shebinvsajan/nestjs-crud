@@ -90,7 +90,7 @@ export class UserController {
   })
   @ApiResponse({
     status: 404,
-    description: 'User not found.',
+    description: 'User not found in the db.',
   })
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.userService.remove(id);
