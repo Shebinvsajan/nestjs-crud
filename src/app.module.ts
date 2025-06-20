@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import {  Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
@@ -16,7 +16,6 @@ import { TaskModule } from './task/task.module';
       type: 'better-sqlite3',
       database: 'db.sqlite',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      logging: true,
     }),
     UserModule,
     ProjectModule,
