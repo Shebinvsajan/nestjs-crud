@@ -4,7 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('NestJS CURD API')
     .setDescription('This is a Nestjs Crud API Documentation')
