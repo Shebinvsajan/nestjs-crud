@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
+import * as path from 'path';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { TaskModule } from './task/task.module';
     }),
     TypeOrmModule.forRoot({
       type: 'better-sqlite3',
-      database: 'db.sqlite',
+      database: path.join(process.cwd(), 'data', 'db.sqlite'), // Use persistent path
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
@@ -25,8 +26,4 @@ import { TaskModule } from './task/task.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-  // configure(consumer:MiddlewareConsumer){
-  //   consumer.apply.()
-  // }
-}
+export class AppModule {}
